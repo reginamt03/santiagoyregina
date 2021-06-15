@@ -47,7 +47,7 @@ export default function Pescador (){
                     </Grid>  
                 </Grid>
                 <Grid item xs={11}>
-                <Button variant='outlined' href='https://www.lareservaajijic.com/' className={classes.button}>Ir a Sitio Web</Button>
+                <Button variant='outlined' href='https://www.hoteldelpescador.com/' className={classes.button}>Ir a Sitio Web</Button>
                 </Grid>  
                 </Grid>
             </div>
