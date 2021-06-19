@@ -62,15 +62,14 @@ export default function LocationCard (props: IlocationCard) {
         {props.date.date}
       </Grid>
       <Grid item xs={11}>
-        {props.eventDuration.start}<br/>
-        {props.eventDuration.ends}
+        {props.eventDuration.start}
       </Grid>
       <Grid item xs={11}>
         {props.location.address} <br/>
         {props.location.state}
       </Grid>
       <Grid item xs={11}>
-        <Button variant='outlined' href={props.location.map} className={classes.button}>Ir al mapa</Button>
+        <Button target="_blank" variant='outlined' href={props.location.map} className={classes.button}>Ir al mapa</Button>
       </Grid>
     </Grid>
   </ContentBox>
