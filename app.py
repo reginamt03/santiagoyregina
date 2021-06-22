@@ -7,6 +7,7 @@ app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS']= 'Content-Type'
 app.config['MYSQL_DATABASE_USER'] = 'hae1w0act11g94ma'
+app.config['MYSQL_DATABASE_PASSWORD']= 'ubur0jp9tb3e10df'
 app.config['MYSQL_DATABASE_DB'] = 'cg0sr7xch3djtgo8'
 app.config['MYSQL_DATABASE_HOST'] = 'lyn7gfxo996yjjco.cbetxkdyhwsb.us-east-1.rds.amazonaws.com'
 
