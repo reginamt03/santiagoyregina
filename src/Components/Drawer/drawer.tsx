@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme:Theme) =>({
   },
   drawer : {
     position: 'fixed',
-    zIndex: 30
   }
 }));
 
@@ -30,21 +29,19 @@ const Drawer = () => {
     setOpen(false)
   }
 
-  
-
   const list = () => {
     
    const handleButtonClick = (text: string) => {
 
     switch (text) {
       case 'Home':
-        break
+        return document.getElementById('Home')?.scrollIntoView({behavior:'smooth'});
       case 'Ceremonia':
         setOpen(false)
         return document.getElementById('Ceremonia')?.scrollIntoView({behavior:'smooth'});
-      case 'Recepcion':
+      case 'Recepción':
         setOpen(false)
-        return document.getElementById('Banquete')?.scrollIntoView({behavior:'smooth'});
+        return document.getElementById('Recepción')?.scrollIntoView({behavior:'smooth'});
       case 'Hospedaje':
         setOpen(false)
         return document.getElementById('hotel')?.scrollIntoView({behavior:'smooth'});
@@ -61,9 +58,12 @@ const Drawer = () => {
     }
     
   }
+
+   const checkinDom = document.getElementById('CheckIn')
+   const listValues = checkinDom != null ? ['Home', 'Ceremonia', 'Recepción', 'Hospedaje', 'Mesa de Regalos', 'Dress Code', 'Check In'] : ['Home', 'Ceremonia', 'Recepción', 'Hospedaje', 'Mesa de Regalos', 'Dress Code']
     return (
       <List className={classes.list}>
-        {['Home', 'Ceremonia', 'Recepcion', 'Hospedaje', 'Mesa de Regalos', 'Dress Code', 'Check In'].map((text) => (
+        {listValues.map((text) => (
             <ListItem button key={text}  onClick={()=> handleButtonClick(text)}>
             <ListItemText className='MainColor' primary={text} />
             </ListItem>
@@ -73,7 +73,7 @@ const Drawer = () => {
   }
   return (
     <React.Fragment key='drawer'>
-    <div className={classes.drawer}>
+    <div className={classes.drawer}  style={{ zIndex: open ? 0: 3000}}>
       <Button onClick={handleDrawerOpen}><MenuIcon/></Button>
     <MUIDrawer open={open} classes={{paper:classes.list}} onClose={handleDrawerClose}>
       {list()}
