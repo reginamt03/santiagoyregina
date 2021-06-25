@@ -4,9 +4,9 @@ export const ceremonia = () => {
     }
   }
 
-  export const banquete = () => {
+  export const recepcion = () => {
     return {
-      type: 'BANQUETE'
+      type: 'RECEPCION'
     }
   }
 

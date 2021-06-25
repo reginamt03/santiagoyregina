@@ -1,9 +1,9 @@
 import ContentBox from '../MainBox/box'
-import { makeStyles, Theme, Grid, Button } from '@material-ui/core'
+import { makeStyles, Theme, Grid, Button, Typography } from '@material-ui/core'
 import { IlocationCard } from './IlocationCard'
 import './locationcard.css'
 import hotel from '../../pictures/TemploSanJose.jpg'
-import banquete from '../../pictures/RecepcionCanoas.png'
+import recepcion from '../../pictures/RecepcionCanoas.png'
 import iconCeremony from '../../pictures/icon-ceremonia.png'
 import iconParty from '../../pictures/icon-banquete.png'
 
@@ -30,8 +30,8 @@ export default function LocationCard (props: IlocationCard) {
     switch (props.name) {
       case 'Ceremonia':
         return hotel
-      case 'Banquete':
-        return banquete
+      case 'Recepción':
+        return recepcion
       case 'Hospedaje':
         return hotel
       }
@@ -41,7 +41,7 @@ export default function LocationCard (props: IlocationCard) {
     switch (props.name) {
       case 'Ceremonia':
         return iconCeremony
-      case 'Banquete':
+      case 'Recepción':
         return iconParty
       case 'Hospedaje':
         return iconCeremony
@@ -54,7 +54,7 @@ export default function LocationCard (props: IlocationCard) {
     <Grid container spacing={4} direction='column' justify='center' alignItems='center'>
       <Grid item xs={11} classes={{root: classes.item}}>
       <img src={icono()} alt='imagen'/><br/>
-        {props.name}
+        <Typography>{props.name}</Typography>
         <img src={imagen()} alt='imagen'/>
       </Grid>
       <Grid item xs={11}>
