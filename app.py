@@ -57,7 +57,7 @@ def get(codigo_invitado):
     }
   }
 
-@app.route('/', methods=['POST'])
+@app.route('/insert', methods=['POST'])
 @cross_origin()
 def post():
   db = Database()
@@ -96,7 +96,7 @@ def post():
   
 
 # PATCH
-@app.route('/', methods=['PATCH'])
+@app.route('/confirm', methods=['PATCH'])
 @cross_origin()
 def updateDB():
   data = request.get_json()
