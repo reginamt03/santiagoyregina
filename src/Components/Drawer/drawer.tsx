@@ -35,6 +35,7 @@ const Drawer = () => {
 
     switch (text) {
       case 'Home':
+        setOpen(false)
         return document.getElementById('Home')?.scrollIntoView({behavior:'smooth'});
       case 'Ceremonia':
         setOpen(false)
