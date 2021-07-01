@@ -14,7 +14,7 @@ export default function RSVP () {
         method: 'GET',
       headers: { 'Content-Type': 'application/json'}
       }
-      const res = await fetch(`http://127.0.0.1:5000/${new URLSearchParams(window.location.search).get('cinv')}`, requestOptions)    
+      const res = await fetch(`https://santiagoyregina.herokuapp.com/${new URLSearchParams(window.location.search).get('i')}`, requestOptions)    
       res.json().then(res => {
         setGuest(res)}).then(() => setQSValue(true)).catch(err => setErrors(err))
       }
