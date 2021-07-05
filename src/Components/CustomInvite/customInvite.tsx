@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme:Theme) => ({
       color: theme.palette.primary.main
     },
     input: {
-     margin: '10px'
+      margin: '10px'
     }
   }))
 
@@ -25,41 +25,37 @@ export default function CustomInvite (props:any) {
   const [hasError, setErrors] = useState(false)
   const [QSValue, setQSValue] = useState(false)
   const [isDisabled, setDisable] = useState(true)
+  const [ticketConfirm, setTicketConfirm] = useState([''])
 
   var contador = 1
 
+  const handleRemoveItem = (e:string) => {
+    const name = e
+    setTicketConfirm(ticketConfirm.filter(item => item !== name));
+   };
 
   const handleChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    /*const counterUpdate = async (isChecked:boolean) => {
-      if (isChecked) {
-        console.log('esto es counter antes: ' + contador)
-        contador = contador + 1
-        console.log('esto es counter despues: ' + contador)
-        setDisable(false)
-        setNoAssistDisable(true)
-      } else if (!isChecked){
-        console.log('esto es counter antes: ' + contador)
-        if (contador === 1 || contador === 0) {
-          setDisable(true)
-          setNoAssistDisable(false)
-        }
-      }
-    }
-    counterUpdate(event.target.checked).then(() => {
-    })*/
     if (event.target.checked){
       contador += 1
       console.log('entro a true: ' + event.target.checked + ' valor: ' + contador)
-    } else {
+      //setTicketConfirm(oldArray => [...oldArray, event.target.defaultValue])
+    } else if (!event.target.checked){
       contador -= 1
       console.log('entro a true: ' + event.target.checked + ' valor: ' + contador)
+      //handleRemoveItem(event.target.defaultValue)
     }
+
+    /*if (!event.target.checked) {
+      handleRemoveItem(event.target.defaultValue)
+    } else {
+      setTicketConfirm(oldArray => [...oldArray, event.target.defaultValue])
+    }*/
     return contador
   }
 
   const checkboxCreator = (event:boolean, nombre:string, id:number) => {
     return <span key={id}>
-      <Checkbox
+      {/*<Checkbox
         key={id}
         color='primary'
         value={id}
@@ -70,9 +66,13 @@ export default function CustomInvite (props:any) {
           } else {
             setDisable(true)
           }
-        })}
-      /> {nombre}
+        }).then()}
+      />*/} {nombre}
     </span>
+  }
+
+  const sendSubmit = () => {
+    console.log(ticketConfirm)
   }
 
   const showTicketCheckbox = (title:string, event:boolean, ticket_info:{id:number, nombre:string}[]) => {
@@ -112,12 +112,12 @@ export default function CustomInvite (props:any) {
         <Grid container direction='column' item xs={6}>
           {props.infoArray.boletos_after.total !== 0 ? showTicketCheckbox('After', true, props.infoArray.boletos_after.info_boletos) : ''}
         </Grid>
-        <Grid item xs={6}>
-          <Button className={classes.button} type='submit' disabled={isDisabled} variant='outlined' color='primary' style={{color:'#777F6F'}}> Asistire </Button>
+       {/* <Grid item xs={6}>
+          <Button className={classes.button} onClick={sendSubmit} type='submit' disabled={isDisabled} variant='outlined' color='primary' style={{color:'#777F6F'}}> Asistire </Button>
         </Grid>
         <Grid item xs={6}>
           <Button className={classes.button} type='submit' disabled={!isDisabled} variant='outlined' color='primary' style={{color:'#777F6F'}}> No asistire </Button>
-        </Grid>
+        </Grid>*/}
       </Grid>
     </ContentBox>
   </div>
