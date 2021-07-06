@@ -104,7 +104,6 @@ export default function CustomInvite (props:any) {
         </Grid>
         <Grid item alignContent='flex-start' xs={12}>
           {props.infoArray.rotulo} <br/>
-          Selecciona todas las casillas de quienes asistiran
         </Grid>
         <Grid container direction='column' item xs={6}>
           {props.infoArray.boletos_recepcion.total !== 0 ? showTicketCheckbox('Recepcion', true, props.infoArray.boletos_recepcion.info_boletos) : ''}
