@@ -76,10 +76,10 @@ export default function CustomInvite (props:any) {
   }
 
   const showTicketCheckbox = (title:string, event:boolean, ticket_info:{id:number, nombre:string}[]) => {
-    var elements = [<span key={ticket_info.length}>{title}<br/></span>]
+    var elements = [<span key={0}>{title}<br/></span>]
     for (let index = 0; index < ticket_info.length; index++) {
-
-      elements.push(checkboxCreator(event, ticket_info[index].nombre, ticket_info[index].id))
+      let ticket = ticket_info[index];
+      elements.push(checkboxCreator(event, ticket.nombre, ticket.id))
     }
     return elements
   }
@@ -96,13 +96,13 @@ export default function CustomInvite (props:any) {
     }
 
   const classes = useStyles()
-  return <div className={classes.card}>
+  return <div id="CheckIn" className={classes.card}>
     <ContentBox>
-      <Grid container>
+      <Grid container alignContent='flex-start'>
         <Grid item xs={12}>
           Check In
         </Grid>
-        <Grid item alignContent='flex-start' xs={12}>
+        <Grid item xs={12}>
           {props.infoArray.rotulo} <br/>
         </Grid>
         <Grid container direction='column' item xs={6}>
