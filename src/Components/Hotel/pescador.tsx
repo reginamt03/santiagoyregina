@@ -1,5 +1,5 @@
 import { makeStyles, Grid, Typography, Theme, Button } from "@material-ui/core";
-import hotelPescador from '../../pictures/ElPescadorHotel.jpg';
+import hotelPescador from '../../pictures/elpescadorhotel-850px.jpg';
 
 const useStyles = makeStyles((theme: Theme) => ({
     card: {

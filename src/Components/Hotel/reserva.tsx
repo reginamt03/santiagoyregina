@@ -1,5 +1,5 @@
 import { makeStyles, Grid, Typography, Theme, Button } from "@material-ui/core";
-import hotelReserva from '../../pictures/LaReservaHotel.jpg';
+import hotelReserva from '../../pictures/LaReservaHotel-850px.jpg';
 
 const useStyles = makeStyles((theme: Theme) => ({
     card: {
