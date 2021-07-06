@@ -9,3 +9,14 @@
 .MainColor {
     font-family: 'Cinzel, serif';
 }
+
+.drawer {
+  position: fixed;
+  z-index: 3000;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+.drawer.open {
+  opacity: 0;
+}
