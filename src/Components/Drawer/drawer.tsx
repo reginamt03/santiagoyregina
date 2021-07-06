@@ -7,13 +7,11 @@ const useStyles = makeStyles((theme:Theme) =>({
   list: {
     color: theme.palette.primary.main,
     backgroundColor: theme.palette.primary.light,
-    width: 180
+    width: 180,
+    paddingTop: 20,
   },
   fullList: {
     width: 'auto',
-  },
-  drawer : {
-    position: 'fixed',
   }
 }));
 
@@ -74,11 +72,11 @@ const Drawer = () => {
   }
   return (
     <React.Fragment key='drawer'>
-    <div className={classes.drawer}  style={{ zIndex: open ? 0: 3000}}>
+    <div className={`drawer ${open ? 'open' : ''}`}>
       <Button onClick={handleDrawerOpen}><MenuIcon/></Button>
-    <MUIDrawer open={open} classes={{paper:classes.list}} onClose={handleDrawerClose}>
-      {list()}
-    </MUIDrawer>
+      <MUIDrawer open={open} classes={{paper:classes.list}} onClose={handleDrawerClose} style={{pointerEvents: open ? 'all' : 'none'}}>
+        {list()}
+      </MUIDrawer>
     </div>
     
   </React.Fragment>
