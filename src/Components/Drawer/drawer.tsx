@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Drawer as MUIDrawer, List, ListItem, ListItemText, Button, makeStyles, Theme} from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import './drawer.css'
+import { createNonNullChain } from 'typescript';
 
 const useStyles = makeStyles((theme:Theme) =>({
   list: {
@@ -28,8 +29,9 @@ const Drawer = () => {
   }
 
   const list = () => {
+    ;
     
-   const handleButtonClick = (text: string) => {
+/*    const handleButtonClick = (text: string) => {
 
     switch (text) {
       case 'Home':
@@ -57,22 +59,61 @@ const Drawer = () => {
         setOpen(false)
         return document.getElementById('CheckIn')?.scrollIntoView({behavior:'smooth'});
 
+    } */
+
+    const handleButtonClick = (text: string) => {
+
+      let target = null
+      switch (text) {
+        case 'Home':
+          target = 'Home'
+          break
+        case 'Ceremonia':
+          target = 'Ceremonia'
+          break;
+        case 'Recepción':
+          target = 'Recepción'
+          break;
+        case 'Hospedaje':
+          target = 'hotel'
+          break;
+        case 'Mesa de Regalos':
+          target = 'MesaRegalos'
+          break;
+        case 'Dress Code':
+          target = 'DressCode'
+          break;
+        case 'Check In':
+          target = 'CheckIn'
+          break;
+      }
+  
+      if (target != null)
+      {
+        setOpen(false)
+        window.location.hash = "#" + target
+      }
+      
     }
     
-  }
+    
+    
 
    const checkinDom = document.getElementById('CheckIn')
    const listValues = checkinDom != null ? ['Home', 'Ceremonia', 'Recepción', 'Hospedaje', 'Mesa de Regalos', 'Dress Code', 'Check In'] : ['Home', 'Ceremonia', 'Recepción', 'Hospedaje', 'Mesa de Regalos', 'Dress Code']
-    return (
+
+   return (
       <List className={classes.list}>
         {listValues.map((text) => (
             <ListItem button key={text}  onClick={()=> handleButtonClick(text)}>
-            <ListItemText className='MainColor' primary={text} />
+            <ListItemText  className='MainColor' primary={text} />
             </ListItem>
         ))}
       </List>
     )
   }
+
+
   return (
     <React.Fragment key='drawer'>
     <div className={`drawer ${open ? 'open' : ''}`}>
