@@ -37,6 +37,9 @@ const Drawer = () => {
         return document.getElementById('Home')?.scrollIntoView({behavior:'smooth'});
       case 'Ceremonia':
         setOpen(false)
+        console.log("Scroll ceremonia")
+        let ceremoniaDom = document.getElementById('Ceremonia')
+        console.log("Ceremonia DOM: " + ceremoniaDom)
         return document.getElementById('Ceremonia')?.scrollIntoView({behavior:'smooth'});
       case 'Recepción':
         setOpen(false)
